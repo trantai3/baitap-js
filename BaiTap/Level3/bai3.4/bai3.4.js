@@ -1,17 +1,14 @@
 function countCommonChars(str1, str2) {
-  let countedChars = "";
+  const arr2 = str2.split("");
   let count = 0;
 
-  for (let i = 0; i < str1.length; i++) {
-    const char = str1[i];
-    if (countedChars.includes(char)) continue;
-
-    if (str2.includes(char)) {
+  for (const c of str1) {
+    const index = arr2.indexOf(c);
+    if (index !== -1) {
       count++;
-      countedChars += char;
+      arr2.splice(index, 1);
     }
   }
-
   return count;
 }
 
@@ -32,4 +29,4 @@ function findMostSimilarPair(arr) {
   return result;
 }
 
-module.exports = findMostSimilarPair;
+console.log(findMostSimilarPair(["hello", "world", "lll", "ll"]));
